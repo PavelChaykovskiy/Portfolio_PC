@@ -181,8 +181,6 @@ span,
 
 body {
   position: relative;
-  padding-bottom: 1000px;
-  /*!dev*/
   background: var(--bg-color-second);
   color: var(--title-main-color);
   font-family: var(--ff-main);
@@ -338,29 +336,6 @@ label {
   border-radius: 50%;
 }
 
-label .btn-light {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  background: #1b1b1b;
-  border-radius: 50%;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 1), inset 0 -2px 5px rgba(0, 0, 0, 1),
-    0 2px 2px rgba(255, 255, 255, 0.5), 0 0 0 2px #000, 0 0 0 5px #0c0c0c,
-    0 0 0 5.5px #080808;
-}
-
-label input[type="checkbox"]:checked ~ .btn-light {
-  box-shadow: 0 0 0 rgba(0, 0, 0, 1), inset 0 -2px 5px rgba(0, 0, 0, 1),
-    0 1px 1px rgba(255, 255, 255, 0.1), 0 0 0 2px #000, 0 0 0 5px #0c0c0c,
-    0 0 0 5.5px #ff7300;
-}
-
-label input[type="checkbox"] {
-  -webkit-appearance: none;
-}
 
 label .fa {
   position: absolute;
@@ -369,11 +344,6 @@ label .fa {
   transform: translate(-30%, -50%);
   font-size: 30px;
   color: var(--theme-main-color);
-}
-
-label input[type="checkbox"]:checked ~ .fa {
-  color: #ff7300;
-  text-shadow: 0 0 15px #e4a111, 0 0 30px #e4a111;
 }
 
 /*----------Header End-----------*/
@@ -399,7 +369,7 @@ label input[type="checkbox"]:checked ~ .fa {
   padding: 0 15px;
   margin-bottom: 250px;
   transition: 0.3s;
-  animation: move 4s 1s 1;
+  animation: move 2s 0s 1;
 }
 
 @keyframes move {
@@ -407,7 +377,7 @@ label input[type="checkbox"]:checked ~ .fa {
     transform: translate(-360px, 0px);
     opacity: 0;
   }
-  50% {
+  20% {
     transform: translate(-360px, 0px);
     opacity: 0;
   }
@@ -1489,7 +1459,7 @@ form {
 
 /*----------Footer End--------*/
 /* --------Loader Start--------*/
-.loader-start {
+/* .loader-start {
   background: darkorange;
   margin: 0;
   padding: 0;
@@ -1660,7 +1630,7 @@ form {
   bottom: 140px;
   right: 140px;
   animation-delay: 0s;
-}
+} */
 
 /*--------Loader End--------*/
 /*---------add start--------*/
