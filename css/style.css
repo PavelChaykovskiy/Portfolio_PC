@@ -86,6 +86,7 @@ button {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  scroll-behavior: smooth;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -101,11 +102,16 @@ menu,
 nav,
 section {
   display: block;
+  
 }
+
+
 
 body {
   line-height: 1;
+  
 }
+
 
 ol,
 ul {
@@ -277,6 +283,7 @@ font-family: 'Lato', sans-serif; */
   background: var(--bg-color-second);
   font-weight: 700;
   padding: 0 0 10px 0;
+  scroll-behavior: smooth;
 }
 
 .header > .container {
@@ -299,9 +306,12 @@ font-family: 'Lato', sans-serif; */
   transform: translateX(5px);
 }
 
+
+
 .navbar {
   align-self: flex-end;
   transform: translateY(-10px);
+  
 }
 
 .navbar > a {
@@ -369,6 +379,8 @@ label input[type="checkbox"]:checked ~ .fa {
 /*----------Header End-----------*/
 
 /*-------------Intro start-------*/
+
+
 
 .intro {
   padding-top: 175px;
