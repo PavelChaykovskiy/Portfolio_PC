@@ -1,14 +1,9 @@
-let age = +prompt(`how old are you`, `18`);
-function checkAge(age) {
-  if (age >= 18) {
-    return true;
-  } else {
-    return confirm(`do you have permision from your parents?`);
-  }
-}
+let user = {
+  name: `Pavlo`,
+  age: 26,
+  toString() {
+    return `{name: ${this.name}, age: ${this.age}}`;
+  },
+};
 
-if (checkAge(age)) {
-  alert(`Welcome!`);
-} else {
-  alert(`please wait until 18`);
-}
+alert(user);
