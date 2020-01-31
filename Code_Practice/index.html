@@ -4,16 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-
-    <title>Document</title>
+    <title>Sale-Cards</title>
   </head>
   <body>
-    <div id="titleBlock">1</div>
-    <div id="contentBlock">2</div>
-    <div id="newsBlock" class="news">3</div>
-    <button id="btn">change 3-th block</button>
+    <div class="results">
+      <div class="container">
+        <h2 class="section-title">
+          <i class="fab fa-500px"></i>Список Товарів
+        </h2>
+
+        <div class="buttonsWrap">
+          <div class="sort-wrap">
+            <p class="sort-active">за рейтингом</p>
+            <i class="fas fa-chevron-down"></i>
+            <div class="wrap-sort-list hidden">
+              <ul>
+                <li>від дешевих до дорогих</li>
+                <li>від дорогих до дешевих</li>
+                <li>популярні</li>
+                <li>новинки</li>
+                <li>акційні</li>
+                <li>за рейтингом</li>
+              </ul>
+            </div>
+          </div>
+          <button id="sendEl">sent elements to log</button>
+          <button
+            class="btn-gallery active-list"
+            id="galleryView"
+            data-message="галерея"
+          >
+            <i class="fas fa-align-justify"></i>
+          </button>
+          <button class="btn-list" id="listView" data-message="список">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+        <div class="product-list" id="pdl"></div>
+        <div class="btn-wrap">
+          <button id="showCardsBtn">Show More..</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <button id="lll">Click</button> -->
     <script src="js/jquery.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
+

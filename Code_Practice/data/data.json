@@ -1,0 +1,27 @@
+//схема яка описує дані в одиниці товару( our cars);
+[
+  {
+    "img": "https://cdn3.riastatic.com/photosnew/auto/photo/audi_a8__304774723fx.webp",
+    "imgs": [
+      "https://cdn1.riastatic.com/photosnew/auto/photo/audi_a8__304774726fx.webp",
+      "https://cdn2.riastatic.com/photosnew/auto/photo/audi_a8__304774732fx.webp",
+      "https://cdn2.riastatic.com/photosnew/auto/photo/audi_a8__304774757fx.webp",
+      "https://cdn2.riastatic.com/photosnew/auto/photo/audi_a8__304774782fx.webp"
+    ],
+    "title": "Audi A8 ARMOURED Class VR9 2018",
+    "data": {
+      "distance": "7777",
+      "geo": "Kiev",
+      "engine": "Patrol 6.3",
+      "transmission": "Automat"
+    },
+    "year": "2018",
+    "price": "480 000",
+    "date": "25.02.2019",
+    "checked": true,
+    "top": 3,
+    "description": "Audi A8 ARMOURED Class VR9 2018",
+    "number": "KR12A22",
+    "vin": false
+  }
+]
