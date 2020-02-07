@@ -2,6 +2,7 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+
 html,
 body,
 div,
@@ -90,6 +91,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -104,17 +106,21 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -122,6 +128,7 @@ q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -164,14 +171,15 @@ table {
 .btn-list:hover {
   color: red;
 }
-.product-list > .product {
+
+.product-list>.product {
   width: 24%;
   border: 1px solid #a0b7f5;
   margin: 1px;
   padding: 5px;
 }
 
-.product-list.p-small > .product {
+.product-list.p-small>.product {
   width: 19%;
 }
 
@@ -226,6 +234,7 @@ table {
   font-size: 13px;
   color: #4d4b4b;
 }
+
 .sort-wrap:hover {
   text-decoration: none;
   background: #f4faf6;
@@ -246,6 +255,7 @@ table {
   color: green;
   font-size: 18px;
 }
+
 .sort-wrap:hover .fa-chevron-down {
   color: #00ff00;
 }
@@ -282,7 +292,8 @@ table {
   display: block;
   padding: 11px 33px 11px 0;
 }
-.wrap-sort-list ul li + li {
+
+.wrap-sort-list ul li+li {
   border-top: 1px solid #ccc;
 }
 
@@ -298,4 +309,69 @@ table {
 
 .wish-list .hidden {
   display: none;
+}
+
+
+
+.cart {
+  width: 900px;
+  border: 1px solid #000;
+  margin: 200px auto;
+  padding: 25px;
+}
+
+.cart-header,
+.cart-row {
+  display: flex;
+}
+.cart-row{
+  align-items: center;
+}
+.cart-row img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.cart-header>div,
+.cart-row>div{
+  padding-right: 10px;
+}
+.cart-header>div:nth-child(1),
+.cart-row>div:nth-child(1) {
+  width: 5%;
+}
+
+.cart-header>div:nth-child(2),
+.cart-row>div:nth-child(2) {
+  width: 15%;
+}
+
+.cart-header>div:nth-child(3),
+.cart-row>div:nth-child(3) {
+  width: 40%;
+}
+
+.cart-header>div:nth-child(4),
+.cart-row>div:nth-child(4) {
+  width: 10%;
+}
+
+.cart-header>div:nth-child(5),
+.cart-row>div:nth-child(5) {
+  width: 20%;
+}
+
+.cart-header>div:nth-child(6),
+.cart-row>div:nth-child(6) {
+  width: 10%;
+}
+
+
+.cart-row-number{
+  display: flex;
+  justify-content: space-around;
+}
+.cart-row-number>div{
+  width: 50%;
+  border: 1px solid #000;
 }
