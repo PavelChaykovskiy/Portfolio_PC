@@ -15,6 +15,8 @@ if (!localStorage[`courseUSD`]) {
 }
 
 
+
+
 //method get take objects with data about our sale-cards in JSON format 
 //we append 10 cards on our page in #pdl
 //durring click on #showCardsBtn we add 10 more cards
@@ -31,11 +33,7 @@ $.get(
   },
 );
 
-//if we dont have created favs in localStorage yet, we make it with empty object inside 
-// we use JSON.stringify for convert objects in  JSON format.
-if (!localStorage['favs']) {
-  localStorage.setItem('favs', JSON.stringify({}))
-}
+
 
 
 // style and functinal for change the look of the cards and buttons durring press on them 
@@ -65,7 +63,15 @@ $(document).on(`click`, function (e) {
 })
 
 
-//if we click on  heart we 
+
+//if we dont have created favs in localStorage yet, we make it with empty object inside 
+// we use JSON.stringify for convert objects in  JSON format.
+if (!localStorage['favs']) {
+  localStorage.setItem('favs', JSON.stringify({}))
+}
+
+
+//*add & delete product to/from wish-list
 //take id of product 
 // take saved favorite data in JSON format  from localStorage and convert them into object with JSON.parse method
 //we check if we have the same saved  id  in our object , then durring click on button we delete it from object
@@ -93,10 +99,25 @@ $(`#pdl`).on(`click`, `.fav`, function () {
 });
 
 
+//!new
+//if we dont have created cart in localStorage yet, we make it with empty object inside 
+// we use JSON.stringify for convert objects in  JSON format.
+if (!localStorage['cartProducts']) {
+  localStorage.setItem('cartProducts', JSON.stringify({}))
+} else {
+  const cartProducts = JSON.parse(localStorage[`cartProducts`]);
+
+  for (let key in cartProducts) { //* виводимо всі ключі по одному ( тобто ID ) збережених елементів в локалСторедж
+    let amount = cartProducts[key];
+    showSavedCart(key, amount);
+  }
+
+}
 
 
 
 
+//*add product to cart
 //durring first press button "add to cart" we add our product to cart ( by create a html template)
 //durring second press open our cart
 pdl.on('click', '.add-cart-btn', function () {
@@ -110,11 +131,17 @@ pdl.on('click', '.add-cart-btn', function () {
     const product = {};
 
     product.img = $product.children('img').attr('src');
-    product.title = $product.find('.product-title').text();
+    product.name = $product.find('.product-title').text();
     product.price = $product.find('.product-price').attr('data-price'); //in USD
-    product.id = $product.attr('data-id');
+    let idValue = product.id = $product.attr('data-id');
 
     addCartRow(product);
+
+    const cartProducts = JSON.parse(localStorage[`cartProducts`]); //!dev first step take json  from local storage and change to object
+    let amountInCart = 1; //!new
+    cartProducts[idValue] = amountInCart;//!new
+    localStorage[`cartProducts`] = JSON.stringify(cartProducts);//!new
+
 
     $(this).text('Already in cart').attr('data-cart', 'true');
   }
@@ -136,8 +163,13 @@ $('.cart-body').on('click', '.cart-row-number>button', function () {
   } else if (type == '+' && val < 100) {
     val++;
   }
-
+  //? seem like function 
   number.text(val);
+  let takeId = $(this).parents(`.cart-row`).attr(`data-id`);
+  const cartProducts = JSON.parse(localStorage[`cartProducts`]);
+  cartProducts[takeId] = val;
+  localStorage[`cartProducts`] = JSON.stringify(cartProducts);//!new
+
 
 })
 
@@ -227,7 +259,7 @@ function addCartRow(product) {
   <div class="cart-row-img">
     <img src="${product.img}">
   </div>
-  <div class="cart-row-title">${product.title}</div>
+  <div class="cart-row-title">${product.name}</div>
   <div class="cart-row-price">${product.price}</div>
   <div class="cart-row-number">
   <button data-type="-">-</button>
@@ -241,3 +273,31 @@ function addCartRow(product) {
 }
 
 
+//!new
+function showSavedCart(key, amount) {
+  $.get(
+    `https://b2b.nikolink.com/api/get-items.php?cat=55&token=0e94e098eac6e56a22496613b325473b7de8cb0a`,
+    function (data) {
+      const arr = data;
+      for (let obj of arr) { //* 
+        if (key == obj.id) { //! do remontu :) zamina na addCartRow(product) {} - problema w amount!!! 
+          let html = `<div class="cart-row" data-id="${obj.id}">
+                      <div class="cart-row-index">#</div>
+                      <div class="cart-row-img">
+                        <img src="${obj.img}">
+                      </div>
+                      <div class="cart-row-title">${obj.name}</div>
+                      <div class="cart-row-price">${obj.price}</div>
+                      <div class="cart-row-number">
+                      <button data-type="-">-</button>
+                      <div>${amount}</div>
+                      <button data-type="+">+</button>  
+                      </div>
+                      <div class="cart-row-total">Total</div>
+                    </div>`
+
+          $('.cart-body').append(html);
+        }
+      }
+    })
+};
